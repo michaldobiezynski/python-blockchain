@@ -24,8 +24,8 @@ def get_balance(participant):
         if len(tx) > 0:
             amount_sent += tx[0]
 
-    tx_recipient = [[tx['amount'] for tx in block['recipient']
-                     if tx['sender'] == participant] for block in blockchain]
+    tx_recipient = [[tx['amount'] for tx in block['transactions']
+                     if tx['recipient'] == participant] for block in blockchain]
     amount_recieved = 0
     for tx in tx_recipient:
         if len(tx) > 0:
